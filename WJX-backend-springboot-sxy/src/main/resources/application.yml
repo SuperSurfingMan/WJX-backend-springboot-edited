@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: backend
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/questionnaire_db
+    username: root
+    password: 123456
+  main:
+    allow-bean-definition-overriding: true
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect=org:
+          hibernate:
+            dialect:
+              MySQL8Dialect: org.hibernate.dialect.MySQL8Dialect
+
+
+
+  sql:
+    init:
+      platform: mysql
+      separator: ;
+      encoding: UTF-8
+      mode: always
+      schema-locations: classpath:schema.sql
+#      data-locations: classpath:sql/data.sql
+
+
+
+mybatis:
+    mapper-locations: classpath:mapper/*.xml
+    type-aliases-package: com.wjx.mybatis.entity
+server:
+  port: 8080
+  address: localhost
+
+
+
